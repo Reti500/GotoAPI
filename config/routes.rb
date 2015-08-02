@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    namespace :v1 do
+      match "/addsocialrelation" => "users#add_social_relation", :via => :post, :as => :add_social_relation
+      
+      resources :users
+      resources :sessions
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
